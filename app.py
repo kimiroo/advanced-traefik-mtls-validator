@@ -197,12 +197,12 @@ def validate_mtls():
     if CHECK_PATHS:
         for rule in ALLOWED_PATHS:
             if host == rule['host'] and path.startswith(rule['pathPrefix']):
-                log.info(f'Whitelisted path detected. Allowing \'{remote_addr}\' to access \'{url}\'...')
+                log.info(f'Whitelisted path detected. Allowing \'{remote_addr}\' to access \'{url}\' (200 OK)...')
                 return 'OK', 200
 
     # Step 2: Handle bypass headers.
     if CHECK_HEADER and bypass_key in ALLOWED_KEYS:
-        log.info(f'Valid bypass header detected. Allowing \'{remote_addr}\' to access \'{url}\'...')
+        log.info(f'Valid bypass header detected. Allowing \'{remote_addr}\' to access \'{url}\' (200 OK)...')
         return 'OK', 200
 
     # Step 3: Check if CA certificate was loaded successfully.
@@ -295,7 +295,7 @@ def validate_mtls():
             abort(403) # Forbidden if CN/SAN is not allowed
 
         # If all checks pass, allow the request.
-        log.info(f'All mTLS validation checks passed. \'{remote_addr}\' from accessing \'{url}\' (200 OK)...')
+        log.info(f'All mTLS validation checks passed. Allowing \'{remote_addr}\' to access \'{url}\' (200 OK)...')
         return 'OK', 200
 
     except HTTPException as e:
