@@ -1,0 +1,18 @@
+allowed_cns:
+  - john
+  - doe
+allowed_sans:
+  RFC822Name:
+    - hello@example.com
+    - world@example.com
+  DNSName:
+    - foo.example.com
+    - bar.example.com
+  IPAddress:
+    - 1.1.1.1
+    - 1.0.0.1
+bypass_header:
+  name: X-Bypass-Auth-Name
+  keys:
+    - testAPIkey1234
+    - testAPIkey5678
