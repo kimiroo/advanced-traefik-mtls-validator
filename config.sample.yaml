@@ -11,6 +11,9 @@ allowed_sans:
   IPAddress:
     - 1.1.1.1
     - 1.0.0.1
+allowed_paths:
+  - host: 'foo.darak.cc'
+    pathPrefix: '/bar/'
 bypass_header:
   name: X-Bypass-Auth-Name
   keys:
