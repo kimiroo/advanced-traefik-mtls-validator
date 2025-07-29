@@ -191,7 +191,7 @@ def validate_mtls():
     bypass_key = request.headers.get(ALLOWED_HEADER, None)
 
     # Log incoming request details for debugging
-    log.info(f'Incoming request from \'{remote_addr}\', URL: \'{url}\', Bypass Key: \'{bypass_key}\'')
+    log.info(f'Request from \'{remote_addr}\' for \'{url}\' received.')
 
     # Step 1: Handle bypass paths.
     if CHECK_PATHS:
